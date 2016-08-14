@@ -16,7 +16,7 @@ class FromBuilder
 
     public function from($table)
     {
-        $this->sql = ' FROM ' . $table;
+        $this->sql .= ' FROM ' . $table;
 
         return new WhereBuilder($this);
     }
