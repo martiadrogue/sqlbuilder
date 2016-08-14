@@ -1,6 +1,6 @@
 <?php
 
-namespace MartiAdrogue\Scrapper\DataObject\QueryBuilder;
+namespace MartiAdrogue\SqlBuilder;
 
 /**
  *
