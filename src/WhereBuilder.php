@@ -11,7 +11,7 @@ class WhereBuilder
 
     public function __construct($sql)
     {
-        $this->sql = $sql;
+        $this->sql = (string) $sql;
     }
 
     public function where($condition)
@@ -23,6 +23,6 @@ class WhereBuilder
 
     public function __toString()
     {
-        return $this->sql->__toString();
+        return $this->sql;
     }
 }

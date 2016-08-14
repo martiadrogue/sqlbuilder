@@ -11,7 +11,7 @@ class FromBuilder
 
     public function __construct(SelectBuilder $sql)
     {
-        $this->sql = $sql;
+        $this->sql = (string) $sql;
     }
 
     public function from($table)
@@ -23,6 +23,6 @@ class FromBuilder
 
     public function __toString()
     {
-        return $this->sql->__toString();
+        return $this->sql;
     }
 }
