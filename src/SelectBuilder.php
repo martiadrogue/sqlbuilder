@@ -44,8 +44,8 @@ class SelectBuilder
     private function hasReservedWords(array $rows)
     {
         $reservedWords = require('config/ReservedWords.php');
-        $safeRows = array_map('strtoupper', $rows);
-        $violations = array_intersect($reservedWords, $safeRows);
+        $candidatesViolation = array_map('strtoupper', $rows);
+        $violations = array_intersect($reservedWords, $candidatesViolation);
 
         if (0 < count($violations)) {
             throw new InvalidSqlSyntaxException();
