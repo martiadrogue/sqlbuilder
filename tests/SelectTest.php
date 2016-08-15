@@ -23,7 +23,11 @@ class SelectTest extends \PHPUnit_Framework_TestCase
         $selectSyntax = '/SELECT\s.*[^,]$/';
         $sqlSelect = $this->selectBuilder->select(['row1','row2','row3','row4','row5']);
 
-        $this->assertRegExp($selectSyntax, $sqlSelect->__toString(), 'An statement SQL Select must have the specified sintax from the SQL-92 standard.');
+        $this->assertRegExp(
+            $selectSyntax,
+            $sqlSelect->__toString(),
+            'An statement SQL Select must have the specified sintax from the SQL-92 standard.'
+        );
     }
 
     /**

@@ -26,7 +26,11 @@ class FromBuilderTest extends \PHPUnit_Framework_TestCase
         $selectSyntax = '/SELECT\s.*FROM\s\w+/';
         $sqlSelect = $this->fromBuilder->from('table');
 
-        $this->assertRegExp($selectSyntax, $sqlSelect->__toString(), 'An statement SQL Select must have the specified sintax from the SQL-92 standard.');
+        $this->assertRegExp(
+            $selectSyntax,
+            $sqlSelect->__toString(),
+            'An statement SQL Select must have the specified sintax from the SQL-92 standard.'
+        );
     }
 
     public function tearDown()
