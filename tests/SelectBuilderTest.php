@@ -5,7 +5,7 @@ namespace MartiAdrogue\SqlBuilder\Test;
 use MartiAdrogue\SqlBuilder\SelectBuilder;
 use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
 
-class SelectTest extends \PHPUnit_Framework_TestCase
+class SelectBuilderTest extends \PHPUnit_Framework_TestCase
 {
     private $selectBuilder;
 
