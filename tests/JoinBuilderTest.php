@@ -5,6 +5,9 @@ namespace MartiAdrogue\SqlBuilder\Test;
 use Mockery;
 use MartiAdrogue\SqlBuilder\FromBuilder;
 use MartiAdrogue\SqlBuilder\JoinBuilder;
+use MartiAdrogue\SqlBuilder\WhereBuilder;
+use MartiAdrogue\SqlBuilder\LimitBuilder;
+use MartiAdrogue\SqlBuilder\HavingBuilder;
 
 class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -42,6 +45,48 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
             JoinBuilder::class,
             $sqlSelect,
             'On change the JoinBuilder It must return an instance of same Builder, JoinBuilder, to add another join.'
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function shouldReturnInstanceOfWherebuilderCreatedWhithCurrentBuilder()
+    {
+        $sqlSelect = $this->joinBuilder->withWhere('title = \'lorem ipsum dolor sit amen\'');
+        $this->assertInstanceOf(
+            WhereBuilder::class,
+            $sqlSelect,
+            'JoinBuilder must return a instance of WhereBuilder to let continue '.
+            'building the query with all statements.'
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function shouldReturnInstanceOfHavingbuilderFromGroupbyCall()
+    {
+        $sqlSelect = $this->joinBuilder->withGroupBy(['row1', 'row2', 'row3']);
+        $this->assertInstanceOf(
+            HavingBuilder::class,
+            $sqlSelect,
+            'JoinBuilder must return a instance of HavingBuilder from a GroupByBuilder ' .
+            'call of action, to let continue building the query with all statements.'
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function shouldReturnInstanceOfLimitbuilderFromOrderbyCall()
+    {
+        $sqlSelect = $this->joinBuilder->withOrderBy(['row1', 'row2', 'row3']);
+        $this->assertInstanceOf(
+            LimitBuilder::class,
+            $sqlSelect,
+            'JoinBuilder must return a instance of LimitBuilder from a OrderByBuilder ' .
+            'call of action, to let finish the query with a Limit statement or not.'
         );
     }
 
