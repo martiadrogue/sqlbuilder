@@ -3,6 +3,7 @@
 namespace MartiAdrogue\SqlBuilder\Test;
 
 use MartiAdrogue\SqlBuilder\SelectBuilder;
+use MartiAdrogue\SqlBuilder\FromBuilder;
 use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
 
 class SelectBuilderTest extends \PHPUnit_Framework_TestCase
@@ -37,5 +38,18 @@ class SelectBuilderTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException(InvalidSqlSyntaxException::class);
         $this->selectBuilder->select(['row1','row2','row3','repeat','row5']);
+    }
+
+    /**
+     * @test
+     */
+    public function shouldChangeStateOfSelectAndReturnFromStaementObject()
+    {
+        $sqlSelect = $this->selectBuilder->select(['row1','row2','row3','row4','row5']);
+        $this->assertInstanceOf(
+            FromBuilder::class,
+            $sqlSelect,
+            'On change the SelectBuilder It must return an instance of the next Builder, FromBuilder.'
+        );
     }
 }
