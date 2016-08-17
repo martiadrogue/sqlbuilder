@@ -5,6 +5,7 @@ namespace MartiAdrogue\SqlBuilder\Test;
 use Mockery;
 use MartiAdrogue\SqlBuilder\SelectBuilder;
 use MartiAdrogue\SqlBuilder\FromBuilder;
+use MartiAdrogue\SqlBuilder\JoinBuilder;
 use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
 
 class FromBuilderTest extends \PHPUnit_Framework_TestCase
@@ -30,6 +31,19 @@ class FromBuilderTest extends \PHPUnit_Framework_TestCase
             $selectSyntax,
             $sqlSelect->__toString(),
             'An statement SQL Select must have the specified sintax from the SQL-92 standard.'
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function shouldChangeStateOfFromAndReturnJoinStaementObject()
+    {
+        $sqlSelect = $this->fromBuilder->from('table');
+        $this->assertInstanceOf(
+            JoinBuilder::class,
+            $sqlSelect,
+            'On change the FromBuilder It must return an instance of the next Builder, JoinBuilder.'
         );
     }
 
