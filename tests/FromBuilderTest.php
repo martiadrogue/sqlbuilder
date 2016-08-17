@@ -21,7 +21,7 @@ class FromBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function shouldReturnAFullSelectStatementAccordingWithSQL92Standard()
+    public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/SELECT\s.*FROM\s\w+/';
         $sqlSelect = $this->fromBuilder->from('table');

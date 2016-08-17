@@ -19,7 +19,7 @@ class SelectBuilderTest extends \PHPUnit_Framework_TestCase
      * @test
      * Test that true does in fact equal true
      */
-    public function shouldReturnASelectStatementAccordingWithSQL92Standard()
+    public function shouldReturnASelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/SELECT\s.*[^,]$/';
         $sqlSelect = $this->selectBuilder->select(['row1','row2','row3','row4','row5']);
