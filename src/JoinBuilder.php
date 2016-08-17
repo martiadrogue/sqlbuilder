@@ -40,7 +40,7 @@ class JoinBuilder
      *
      * @return WhereBuilder Builder to make Where part of a statement Select.
      */
-    public function withWhere(array $condition)
+    public function withWhere($condition)
     {
         $whereBuilder = new WhereBuilder($this);
 
