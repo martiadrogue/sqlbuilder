@@ -50,8 +50,7 @@ class JoinBuilder
     /**
      * Prove a Builder to define next Group By part.
      *
-     * @return GroupByBuilder Builder to make Group By part of a statement
-     *                        Select.
+     * @return HavingBuilder Builder to make having part of a statement Select.
      */
     public function withGroupBy(array $rows)
     {
@@ -63,8 +62,7 @@ class JoinBuilder
     /**
      * Prove a Builder to define next Order By part.
      *
-     * @return OrderByBuilder Builder to make Order By part of a statement
-     *                        Select.
+     * @return LimitBuilder Builder to make Limit part of a statement Select.
      */
     public function withOrderBy(array $rows)
     {
@@ -76,7 +74,8 @@ class JoinBuilder
     /**
      * Prove a Builder to define next Limit part.
      *
-     * @return LimitBuilder Builder to make Limit part of a statement Select.
+     * @return LimitBuilder Builder to replace current Limit or get the full
+     *                      Select.
      */
     public function withLimit($confines)
     {
