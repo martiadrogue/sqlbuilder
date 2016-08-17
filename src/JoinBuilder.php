@@ -80,8 +80,9 @@ class JoinBuilder
     public function withLimit($confines)
     {
         $limitBuilder = new LimitBuilder($this);
+        $limitBuilder->limit($confines);
 
-        return $limitBuilder->limit($confines);
+        return $limitBuilder;
     }
 
     public function __toString()
