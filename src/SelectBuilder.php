@@ -18,10 +18,8 @@ use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
  *
  * SELECT select_expr [, select_expr ...]
  */
-class SelectBuilder
+class SelectBuilder extends Context
 {
-    private $sql;
-
     public function __construct()
     {
         $this->sql = 'SELECT ';
@@ -45,11 +43,6 @@ class SelectBuilder
         $this->sql .= $this->makeRowsChain($rows);
 
         return new  FromBuilder($this);
-    }
-
-    public function __toString()
-    {
-        return $this->sql;
     }
 
     private function makeRowsChain(array $rows)

@@ -11,10 +11,8 @@ namespace MartiAdrogue\SqlBuilder;
 /**
  * Provides a convenient interface to define Join clause in a database query.
  */
-class JoinBuilder
+class JoinBuilder extends Context
 {
-    private $sql;
-
     public function __construct(FromBuilder $sql)
     {
         $this->sql = (string) $sql;
@@ -83,10 +81,5 @@ class JoinBuilder
         $limitBuilder->limit($confines);
 
         return $limitBuilder;
-    }
-
-    public function __toString()
-    {
-        return $this->sql;
     }
 }

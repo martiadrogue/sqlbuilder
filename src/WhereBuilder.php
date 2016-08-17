@@ -13,11 +13,9 @@ namespace MartiAdrogue\SqlBuilder;
  *
  * [WHERE where_condition]
  */
-class WhereBuilder
+class WhereBuilder extends Context
 {
-    private $sql;
-
-    public function __construct($sql)
+    public function __construct(JoinBuilder $sql)
     {
         $this->sql = (string) $sql;
     }
@@ -71,10 +69,5 @@ class WhereBuilder
         $limitBuilder->limit($confines);
 
         return $limitBuilder;
-    }
-
-    public function __toString()
-    {
-        return $this->sql;
     }
 }

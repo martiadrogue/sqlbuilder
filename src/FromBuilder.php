@@ -13,10 +13,8 @@ namespace MartiAdrogue\SqlBuilder;
  *
  * [FROM table_references
  */
-class FromBuilder
+class FromBuilder extends Context
 {
-    private $sql;
-
     public function __construct(SelectBuilder $sql)
     {
         $this->sql = (string) $sql;
@@ -35,10 +33,5 @@ class FromBuilder
         $this->sql .= ' FROM '.$table;
 
         return new JoinBuilder($this);
-    }
-
-    public function __toString()
-    {
-        return $this->sql;
     }
 }
