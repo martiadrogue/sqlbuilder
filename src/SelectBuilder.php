@@ -9,6 +9,7 @@
 namespace MartiAdrogue\SqlBuilder;
 
 use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
+use MartiAdrogue\SqlBuilder\Expression\RowSequence;
 
 /**
  * Provides a convenient interface to creating database queries.
@@ -39,25 +40,9 @@ class SelectBuilder extends Context
      */
     public function select(array $rows)
     {
-        $this->hasReservedWords($rows);
-        $this->sql .= $this->makeRowsChain($rows);
+        $rowsFormater = new RowSequence($rows);
+        $this->sql .= $rowsFormater->getChainOfRows($rows);
 
         return new  FromBuilder($this);
-    }
-
-    private function makeRowsChain(array $rows)
-    {
-        return implode(', ', $rows);
-    }
-
-    private function hasReservedWords(array $rows)
-    {
-        $reservedWords = require 'config/ReservedWords.php';
-        $candidatesViolation = array_map('strtoupper', $rows);
-        $violations = array_intersect($reservedWords, $candidatesViolation);
-
-        if (0 < count($violations)) {
-            throw new InvalidSqlSyntaxException();
-        }
     }
 }
