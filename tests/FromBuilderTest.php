@@ -36,7 +36,7 @@ class FromBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function shouldChangeStateOfFromAndReturnJoinStaementObject()
+    public function shouldChangeStateOfFromAndReturnJoinStatementObject()
     {
         $sqlSelect = $this->fromBuilder->from('table');
         $this->assertInstanceOf(

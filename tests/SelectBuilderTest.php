@@ -43,7 +43,7 @@ class SelectBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function shouldChangeStateOfSelectAndReturnFromStaementObject()
+    public function shouldChangeStateOfSelectAndReturnFromStatementObject()
     {
         $sqlSelect = $this->selectBuilder->select(['row1','row2','row3','row4','row5']);
         $this->assertInstanceOf(
