@@ -10,6 +10,8 @@ namespace MartiAdrogue\SqlBuilder;
 
 /**
  * Provides a convenient interface to define Where clause in a database query.
+ *
+ * [WHERE where_condition]
  */
 class WhereBuilder
 {
