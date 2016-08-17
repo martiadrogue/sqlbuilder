@@ -6,7 +6,6 @@ use Mockery;
 use MartiAdrogue\SqlBuilder\SelectBuilder;
 use MartiAdrogue\SqlBuilder\FromBuilder;
 use MartiAdrogue\SqlBuilder\JoinBuilder;
-use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
 
 class FromBuilderTest extends \PHPUnit_Framework_TestCase
 {
