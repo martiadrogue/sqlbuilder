@@ -15,6 +15,8 @@ use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
  *
  * It build a clean Select statement without reserved words and standard SQL-92
  * syntax. And Return another builder to write the next part of statement.
+ *
+ * SELECT select_expr [, select_expr ...]
  */
 class SelectBuilder
 {
