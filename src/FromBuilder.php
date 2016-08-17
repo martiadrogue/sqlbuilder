@@ -10,6 +10,8 @@ namespace MartiAdrogue\SqlBuilder;
 
 /**
  * Provides a convenient interface to define From clause in a database query.
+ *
+ * [FROM table_references
  */
 class FromBuilder
 {
@@ -21,18 +23,18 @@ class FromBuilder
     }
 
     /**
-     * Build Form clause of Select statement and prove a Builder to define next
-     * Where part.
+     * Build Form clause of Select statement and prove a Builder to join another
+     * table.
      *
      * @param string $table Name of the table
      *
-     * @return WhereBuilder Builder to make Where part of a statement Select.
+     * @return JoinBuilder Builder to filter results on our select.
      */
     public function from($table)
     {
         $this->sql .= ' FROM '.$table;
 
-        return new WhereBuilder($this);
+        return new JoinBuilder($this);
     }
 
     public function __toString()
