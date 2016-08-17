@@ -66,9 +66,9 @@ class JoinBuilder
      */
     public function withOrderBy(array $rows)
     {
-        $groupByBuilder = new OrderByBuilder($this);
+        $orderByBuilder = new OrderByBuilder($this);
 
-        return $groupByBuilder->orderBy($rows);
+        return $orderByBuilder->orderBy($rows);
     }
 
     /**
