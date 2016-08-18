@@ -9,7 +9,7 @@
 namespace MartiAdrogue\SqlBuilder;
 
 /**
- * Provides basic tools to creating database queries.
+ * Provides the most basic tools to creating in parts database queries.
  */
 abstract class Context
 {
