@@ -34,15 +34,6 @@ class SelectBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function shouldStopFlowWhenReservedWordIsUsedInASqlStatement()
-    {
-        $this->setExpectedException(InvalidSqlSyntaxException::class);
-        $this->selectBuilder->select(['row1','row2','row3','repeat','row5']);
-    }
-
-    /**
-     * @test
-     */
     public function shouldChangeStateOfSelectAndReturnFromStatementObject()
     {
         $sqlSelect = $this->selectBuilder->select(['row1','row2','row3','row4','row5']);

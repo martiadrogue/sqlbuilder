@@ -32,4 +32,14 @@ class RowSequenceTest extends \PHPUnit_Framework_TestCase
             'Array of strings changes to one single string ensemble by comma.'
         );
     }
+
+    /**
+     * @test
+     */
+    public function shouldStopFlowWhenReservedWordIsUsedInASqlStatement()
+    {
+        $this->setExpectedException(InvalidSqlSyntaxException::class);
+        new RowSequence(['row1', 'row2', 'order', 'row4']);
+    }
+
 }
