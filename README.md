@@ -1,4 +1,4 @@
-# SqlBuilder
+# SQL Builder
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,20 +7,9 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Make greate SQL tasks dynamically.
-
-http://www.babyearth.com/
-http://www.petitlem.com/
-http://www.walmart.com/cp/Baby-Products/5427
-http://www.buybuybaby.com/store/category/clearance-savings/30010/
-http://www.giggle.com/
-http://www.potterybarnkids.com/shop/baby/
-http://www.target.com/c/baby/-/N-5xtly
-http://www.carters.com/carters-baby
-https://pure-ecommerce.com/online-baby-boutique-website-for-sale
-http://www.diapers.com/
-https://www.quora.com/Are-baby-e-commerce-sites-successful
-http://inpics.net/tutorials/mysql/security4.html
+Make great SQL tasks dynamically. Return a Select statement from a chain of
+responsibilities pattern and some "with" methods to cover all paths of the
+select.
 
 ## Install
 
@@ -52,7 +41,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Testing
 
 ``` bash
-$ composer test
+composer test
 ```
 
 ## Contributing
@@ -61,12 +50,13 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email marti.adrogue@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email
+marti.adrogue@gmail.com instead of using the issue tracker.
 
 ## Credits
 
-- [Martí Adrogué][link-author]
-- [All Contributors][link-contributors]
+-   [Martí Adrogué][link-author]
+-   [All Contributors][link-contributors]
 
 ## License
 
@@ -86,20 +76,3 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-downloads]: https://packagist.org/packages/martiadrogue/sqlbuilder
 [link-author]: https://github.com/martiadrogue
 [link-contributors]: ../../contributors
-
-## NOTES
-
-I found an issue when I was trying to update my dependencies.
-
-```shell
-composer update
-Cannot create cache directory /home/marti/.composer/cache/repo/https---packagist.org/, or directory is not writable. Proceeding without cache
-Cannot create cache directory /home/marti/.composer/cache/files/, or directory is not writable. Proceeding without cache
-Cannot create cache directory /home/marti/.composer/cache/repo/https---packagist.org/, or directory is not writable. Proceeding without cache
-```
-
-Solution:
-
-```shell
-sudo chown -R $USER $HOME/.composer/
-```

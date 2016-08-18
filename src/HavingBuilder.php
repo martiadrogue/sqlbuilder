@@ -9,27 +9,27 @@
 namespace MartiAdrogue\SqlBuilder;
 
 /**
- * Provides a convenient interface to define Where clause in a database query.
+ * Provides a convenient interface to define Having clause in a database query.
  *
- * [WHERE where_condition]
+ * [HAVING where_condition]
  */
-class WhereBuilder extends WhereContext
+class HavingBuilder extends HavingContext
 {
-    public function __construct(JoinBuilder $sql)
+    public function __construct(GroupByBuilder $sql)
     {
         $this->sql = (string) $sql;
     }
 
     /**
-     * Build Where clause of Select statement.
+     * Build Having clause of Select statement.
      *
      * @param string $condition assertion to filter results
      *
-     * @return WhereBuilder Builder to make Where part of a statement Select.
+     * @return HavingBuilder Builder to make Having part of a statement Select.
      */
-    public function where($condition)
+    public function having($condition)
     {
-        $this->sql .= ' WHERE '.$condition;
+        $this->sql .= ' HAVING '.$condition;
 
         return $this;
     }
