@@ -90,6 +90,20 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * @test
+     */
+    public function shouldReturnInstanceOfLimitbuilderFromLimitCall()
+    {
+        $sqlSelect = $this->joinBuilder->withLimit(10);
+        $this->assertInstanceOf(
+            LimitBuilder::class,
+            $sqlSelect,
+            'JoinBuilder must return a instance of LimitBuilder from a withLimit '.
+            'call, to replace the query with aother Limit statement or not.'
+        );
+    }
+
     public function tearDown()
     {
         Mockery::close();
