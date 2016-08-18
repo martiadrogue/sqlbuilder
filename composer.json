@@ -51,8 +51,8 @@
     },
     "scripts": {
         "test": "phpunit",
-        "foramt": [
-            "php-cs-fixer fix --level=psr2",
+        "format": [
+            "php-cs-fixer fix --level=psr2 src/",
             "phpcbf --standard=psr2 src/"
         ]
     },
