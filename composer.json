@@ -5,7 +5,9 @@
     "keywords": [
         "martiadrogue",
         "sql",
-        "sqlbuilder"
+        "sqlbuilder",
+        "builder",
+        "query"
     ],
     "homepage": "https://github.com/martiadrogue/sqlbuilder",
     "license": "MIT",
