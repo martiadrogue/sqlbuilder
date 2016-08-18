@@ -41,5 +41,4 @@ class RowSequenceTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException(InvalidSqlSyntaxException::class);
         new RowSequence(['row1', 'row2', 'order', 'row4']);
     }
-
 }
