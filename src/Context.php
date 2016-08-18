@@ -8,8 +8,6 @@
  */
 namespace MartiAdrogue\SqlBuilder;
 
-use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
-
 /**
  * Provides basic tools to creating database queries.
  */
