@@ -2,9 +2,9 @@
 /**
  * This file is part of the martiadrogue/sqlbuilder package.
  *
- * @author Martí Adrogué <marti.adrogue@gmail.com>
+ * @author    Martí Adrogué <marti.adrogue@gmail.com>
  * @copyright 2016 Martí Adrogué
- * @license https://opensource.org/licenses/MIT MIT License
+ * @license   https://opensource.org/licenses/MIT MIT License
  */
 namespace MartiAdrogue\SqlBuilder\Expression;
 
@@ -42,7 +42,7 @@ class RowSequence
 
     private function hasReservedWords($rows)
     {
-        $reservedWords = require 'config/ReservedWords.php';
+        $reservedWords = include 'config/ReservedWords.php';
         $candidatesViolation = array_map('strtoupper', $rows);
         $violations = array_intersect($reservedWords, $candidatesViolation);
 
