@@ -8,7 +8,6 @@
  */
 namespace MartiAdrogue\SqlBuilder;
 
-use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
 use MartiAdrogue\SqlBuilder\Expression\RowSequence;
 
 /**
