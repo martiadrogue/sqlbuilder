@@ -7,6 +7,10 @@ use MartiAdrogue\SqlBuilder\SelectBuilder;
 use MartiAdrogue\SqlBuilder\FromBuilder;
 use MartiAdrogue\SqlBuilder\JoinBuilder;
 
+/**
+ * @covers MartiAdrogue\SqlBuilder\FromBuilder::<!public>
+ * @covers MartiAdrogue\SqlBuilder\FromBuilder::__construct
+ */
 class FromBuilderTest extends \PHPUnit_Framework_TestCase
 {
     private $fromBuilder;
@@ -20,6 +24,7 @@ class FromBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\FromBuilder::from
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -35,6 +40,7 @@ class FromBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\FromBuilder::from
      */
     public function shouldChangeStateOfFromAndReturnJoinStatementObject()
     {

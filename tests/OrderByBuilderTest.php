@@ -7,6 +7,10 @@ use MartiAdrogue\SqlBuilder\Context;
 use MartiAdrogue\SqlBuilder\LimitBuilder;
 use MartiAdrogue\SqlBuilder\OrderByBuilder;
 
+/**
+ * @covers MartiAdrogue\SqlBuilder\OrderByBuilder::<!public>
+ * @covers MartiAdrogue\SqlBuilder\OrderByBuilder::__construct
+ */
 class OrderByBuilderTest extends \PHPUnit_Framework_TestCase
 {
     private $orderByBuilder;
@@ -20,6 +24,7 @@ class OrderByBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\OrderByBuilder::orderBy
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -35,6 +40,7 @@ class OrderByBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\OrderByBuilder::orderBy
      */
     public function shouldChangeStateOfOrderbyAndReturnLimitbuilder()
     {

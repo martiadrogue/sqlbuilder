@@ -9,6 +9,10 @@ use MartiAdrogue\SqlBuilder\WhereBuilder;
 use MartiAdrogue\SqlBuilder\LimitBuilder;
 use MartiAdrogue\SqlBuilder\HavingBuilder;
 
+/**
+ * @covers MartiAdrogue\SqlBuilder\JoinBuilder::<!public>
+ * @covers MartiAdrogue\SqlBuilder\JoinBuilder::__construct
+ */
 class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 {
     private $joinBuilder;
@@ -22,6 +26,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\JoinBuilder::join
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -37,6 +42,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\JoinBuilder::join
      */
     public function shouldChangeStateOfFromAndReturnJoinStatementObject()
     {
@@ -50,6 +56,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\JoinBuilder::withWhere
      */
     public function shouldReturnInstanceOfWherebuilderCreatedWhithCurrentBuilder()
     {
@@ -64,6 +71,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\JoinBuilder::withGroupBy
      */
     public function shouldReturnInstanceOfHavingbuilderFromGroupbyCall()
     {
@@ -78,6 +86,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\JoinBuilder::withOrderBy
      */
     public function shouldReturnInstanceOfLimitbuilderFromOrderbyCall()
     {
@@ -92,6 +101,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\JoinBuilder::withLimit
      */
     public function shouldReturnInstanceOfLimitbuilderFromLimitCall()
     {

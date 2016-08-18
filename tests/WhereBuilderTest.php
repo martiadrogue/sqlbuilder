@@ -8,6 +8,10 @@ use MartiAdrogue\SqlBuilder\WhereBuilder;
 use MartiAdrogue\SqlBuilder\LimitBuilder;
 use MartiAdrogue\SqlBuilder\HavingBuilder;
 
+/**
+ * @covers MartiAdrogue\SqlBuilder\WhereBuilder::<!public>
+ * @covers MartiAdrogue\SqlBuilder\WhereBuilder::__construct
+ */
 class WhereBuilderTest extends \PHPUnit_Framework_TestCase
 {
     private $whereBuilder;
@@ -21,6 +25,7 @@ class WhereBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\WhereBuilder::where
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -36,6 +41,7 @@ class WhereBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\WhereBuilder::where
      */
     public function shouldChangeStateOfWhereAndReturnAnotherWherebuilderToAddMoreConditions()
     {
@@ -50,6 +56,7 @@ class WhereBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\WhereBuilder::withGroupBy
      */
     public function shouldReturnInstanceOfHavingbuilderFromGroupbyCall()
     {
@@ -64,6 +71,7 @@ class WhereBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\WhereBuilder::withOrderBy
      */
     public function shouldReturnInstanceOfLimitbuilderFromOrderbyCall()
     {

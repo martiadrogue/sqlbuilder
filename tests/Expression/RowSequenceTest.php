@@ -11,6 +11,10 @@ namespace MartiAdrogue\SqlBuilder\Test\Expression;
 use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
 use MartiAdrogue\SqlBuilder\Expression\RowSequence;
 
+/**
+ * @covers MartiAdrogue\SqlBuilder\Expression\RowSequence::<!public>
+ * @covers MartiAdrogue\SqlBuilder\Expression\RowSequence::__construct
+ */
 class RowSequenceTest extends \PHPUnit_Framework_TestCase
 {
     private $rowSequence;
@@ -22,6 +26,7 @@ class RowSequenceTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @tests
+     * @covers MartiAdrogue\SqlBuilder\Expression\RowSequence::getChainOfRows
      */
     public function shouldConvertAnArrayToAListOfElementsSeparatedByComma()
     {
