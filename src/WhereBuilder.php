@@ -13,7 +13,7 @@ namespace MartiAdrogue\SqlBuilder;
  *
  * [WHERE where_condition]
  */
-class WhereBuilder extends Context
+class WhereBuilder extends WhereContext
 {
     public function __construct(JoinBuilder $sql)
     {
@@ -32,42 +32,5 @@ class WhereBuilder extends Context
         $this->sql .= ' WHERE '.$condition;
 
         return $this;
-    }
-
-    /**
-     * Prove a Builder to define next Group By part.
-     *
-     * @return HavingBuilder Builder to make having part of a statement Select.
-     */
-    public function withGroupBy(array $rows)
-    {
-        $groupByBuilder = new GroupByBuilder($this);
-
-        return $groupByBuilder->groupBy($rows);
-    }
-
-    /**
-     * Prove a Builder to define next Order By part.
-     *
-     * @return LimitBuilder Builder to make Limit part of a statement Select.
-     */
-    public function withOrderBy(array $rows)
-    {
-        $orderByBuilder = new OrderByBuilder($this);
-
-        return $orderByBuilder->orderBy($rows);
-    }
-
-    /**
-     * Prove a Builder to define next Limit part.
-     *
-     * @return LimitBuilder Builder to make Limit part of a statement Select.
-     */
-    public function withLimit($confines)
-    {
-        $limitBuilder = new LimitBuilder($this);
-        $limitBuilder->limit($confines);
-
-        return $limitBuilder;
     }
 }

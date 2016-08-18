@@ -11,7 +11,7 @@ namespace MartiAdrogue\SqlBuilder;
 /**
  * Provides a convenient interface to define Join clause in a database query.
  */
-class JoinBuilder extends Context
+class JoinBuilder extends JoinContext
 {
     public function __construct(FromBuilder $sql)
     {
@@ -31,55 +31,5 @@ class JoinBuilder extends Context
         $this->sql .= ' '.$joinTable;
 
         return $this;
-    }
-
-    /**
-     * Prove a Builder to define next Where part.
-     *
-     * @return WhereBuilder Builder to make Where part of a statement Select.
-     */
-    public function withWhere($condition)
-    {
-        $whereBuilder = new WhereBuilder($this);
-
-        return $whereBuilder->where($condition);
-    }
-
-    /**
-     * Prove a Builder to define next Group By part.
-     *
-     * @return HavingBuilder Builder to make having part of a statement Select.
-     */
-    public function withGroupBy(array $rows)
-    {
-        $groupByBuilder = new GroupByBuilder($this);
-
-        return $groupByBuilder->groupBy($rows);
-    }
-
-    /**
-     * Prove a Builder to define next Order By part.
-     *
-     * @return LimitBuilder Builder to make Limit part of a statement Select.
-     */
-    public function withOrderBy(array $rows)
-    {
-        $orderByBuilder = new OrderByBuilder($this);
-
-        return $orderByBuilder->orderBy($rows);
-    }
-
-    /**
-     * Prove a Builder to define next Limit part.
-     *
-     * @return LimitBuilder Builder to replace current Limit or get the full
-     *                      Select.
-     */
-    public function withLimit($confines)
-    {
-        $limitBuilder = new LimitBuilder($this);
-        $limitBuilder->limit($confines);
-
-        return $limitBuilder;
     }
 }
