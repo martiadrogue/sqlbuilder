@@ -6,6 +6,10 @@ use MartiAdrogue\SqlBuilder\SelectBuilder;
 use MartiAdrogue\SqlBuilder\FromBuilder;
 use MartiAdrogue\SqlBuilder\Exception\InvalidSqlSyntaxException;
 
+/**
+ * @covers MartiAdrogue\SqlBuilder\SelectBuilder::<!public>
+ * @covers MartiAdrogue\SqlBuilder\SelectBuilder::__construct
+ */
 class SelectBuilderTest extends \PHPUnit_Framework_TestCase
 {
     private $selectBuilder;
@@ -17,7 +21,7 @@ class SelectBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * Test that true does in fact equal true
+     * @covers MartiAdrogue\SqlBuilder\SelectBuilder::select
      */
     public function shouldReturnASelectStatementAccordingWithSql92Standard()
     {
@@ -33,6 +37,7 @@ class SelectBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\SelectBuilder::select
      */
     public function shouldChangeStateOfSelectAndReturnFromStatementObject()
     {

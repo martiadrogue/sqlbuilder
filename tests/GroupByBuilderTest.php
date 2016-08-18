@@ -7,6 +7,10 @@ use MartiAdrogue\SqlBuilder\Context;
 use MartiAdrogue\SqlBuilder\HavingBuilder;
 use MartiAdrogue\SqlBuilder\GroupByBuilder;
 
+/**
+ * @covers MartiAdrogue\SqlBuilder\GroupByBuilder::<!public>
+ * @covers MartiAdrogue\SqlBuilder\GroupByBuilder::__construct
+ */
 class GroupByBuilderTest extends \PHPUnit_Framework_TestCase
 {
     private $groupByBuilder;
@@ -20,6 +24,7 @@ class GroupByBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\GroupByBuilder::groupBy
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {

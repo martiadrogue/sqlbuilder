@@ -6,6 +6,10 @@ use Mockery;
 use MartiAdrogue\SqlBuilder\Context;
 use MartiAdrogue\SqlBuilder\LimitBuilder;
 
+/**
+ * @covers MartiAdrogue\SqlBuilder\LimitBuilder::<!public>
+ * @covers MartiAdrogue\SqlBuilder\LimitBuilder::__construct
+ */
 class LimitBuilderTest extends \PHPUnit_Framework_TestCase
 {
     private $limitBuilder;
@@ -19,6 +23,7 @@ class LimitBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\LimitBuilder::limit
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -34,6 +39,7 @@ class LimitBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\LimitBuilder::limit
      */
     public function shouldChangeStateOfLimitAndReturnTheSamebuilder()
     {

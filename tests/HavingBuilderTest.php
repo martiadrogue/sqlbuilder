@@ -8,6 +8,10 @@ use MartiAdrogue\SqlBuilder\LimitBuilder;
 use MartiAdrogue\SqlBuilder\HavingBuilder;
 use MartiAdrogue\SqlBuilder\GroupByBuilder;
 
+/**
+ * @covers MartiAdrogue\SqlBuilder\HavingBuilder::<!public>
+ * @covers MartiAdrogue\SqlBuilder\HavingBuilder::__construct
+ */
 class HavingBuilderTest extends \PHPUnit_Framework_TestCase
 {
     private $havingBuilder;
@@ -22,6 +26,7 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\HavingBuilder::having
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -37,6 +42,7 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\HavingBuilder::having
      */
     public function shouldChangeStateOfHavingAndReturnAnotherHavingbuilder()
     {
@@ -51,6 +57,7 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\HavingBuilder::withOrderBy
      */
     public function shouldReturnInstanceOfLimitbuilderFromOrderbyCall()
     {
@@ -65,6 +72,7 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\HavingBuilder::withLimit
      */
     public function shouldReturnInstanceOfLimitbuilderFromLimitCall()
     {
