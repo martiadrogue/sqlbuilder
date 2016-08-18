@@ -14,12 +14,27 @@ class RowSequence
 {
     private $rows;
 
+    /**
+     * Fill the array of rows and validate it before class action is called.
+     *
+     * @uses config/ReservedWords.php
+     *
+     * @throws InvalidSqlSyntaxException If
+     *                                   provided rows has some reserved words.
+     *
+     * @param array $rows An stack of rows
+     */
     public function __construct(array $rows)
     {
         $this->hasReservedWords($rows);
         $this->rows = $rows;
     }
 
+    /**
+     * Convert an array of rows into a list represented by string.
+     *
+     * @return string A list of rows separated by comma
+     */
     public function getChainOfRows()
     {
         return implode(', ', $this->rows);

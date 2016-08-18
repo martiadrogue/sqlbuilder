@@ -29,12 +29,7 @@ class SelectBuilder extends Context
     /**
      * Make a select statement with rows passed.
      *
-     * @uses config/ReservedWords.php
-     *
      * @param array $rows Stack of rows
-     *
-     * @throws InvalidSqlSyntaxException If
-     *                                   provided rows has some reserved words.
      *
      * @return FormBuilder Builder to make next part of a statement Select.
      */
