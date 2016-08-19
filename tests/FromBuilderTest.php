@@ -28,7 +28,7 @@ class FromBuilderTest extends \PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\SqlBuilder\FromBuilder::from
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
+    public function shouldBuildSelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/SELECT\s.*FROM\s\w+/';
         $sqlSelect = $this->fromBuilder->from('table');
@@ -46,7 +46,7 @@ class FromBuilderTest extends \PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\SqlBuilder\FromBuilder::from
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldChangeStateOfFromAndReturnJoinStatementObject()
+    public function shouldReturnJoinStatementObjectOnChangeStateOfFrom()
     {
         $sqlSelect = $this->fromBuilder->from('table');
         $this->assertInstanceOf(

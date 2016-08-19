@@ -26,7 +26,7 @@ class LimitBuilderTest extends \PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\SqlBuilder\LimitBuilder::limit
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
+    public function shouldBuildSelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/.*\sLIMIT\s.*/';
         $sqlSelect = $this->limitBuilder->limit(10);
@@ -42,7 +42,7 @@ class LimitBuilderTest extends \PHPUnit_Framework_TestCase
      * @test
      * @covers MartiAdrogue\SqlBuilder\LimitBuilder::limit
      */
-    public function shouldChangeStateOfLimitAndReturnTheSamebuilder()
+    public function shouldReturnAnotherLimitbuilderOnChangeStateOfLimit()
     {
         $sqlSelect = $this->limitBuilder->limit(10);
         $this->assertInstanceOf(

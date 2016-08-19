@@ -29,7 +29,7 @@ class WhereBuilderTest extends \PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\SqlBuilder\WhereBuilder::where
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
+    public function shouldBuildSelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/.*\sWHERE\s.*/';
         $sqlSelect = $this->whereBuilder->where('title = \'lorem ipsum dolor sit amen\'');
@@ -45,7 +45,7 @@ class WhereBuilderTest extends \PHPUnit_Framework_TestCase
      * @test
      * @covers MartiAdrogue\SqlBuilder\WhereBuilder::where
      */
-    public function shouldChangeStateOfWhereAndReturnAnotherWherebuilderToAddMoreConditions()
+    public function shouldReturnAnotherWherebuilderOnChangeStateOfWhere()
     {
         $sqlSelect = $this->whereBuilder->where('title = \'lorem ipsum dolor sit amen\'');
         $this->assertInstanceOf(
@@ -64,7 +64,7 @@ class WhereBuilderTest extends \PHPUnit_Framework_TestCase
      * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\WhereContext::withGroupBy
      */
-    public function shouldReturnInstanceOfHavingbuilderFromGroupbyCall()
+    public function shouldGetHavingbuilderFromGroupbyCall()
     {
         $sqlSelect = $this->whereBuilder->withGroupBy(['row1', 'row2', 'row3']);
         $this->assertInstanceOf(
@@ -82,7 +82,7 @@ class WhereBuilderTest extends \PHPUnit_Framework_TestCase
      * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\WhereContext::withOrderBy
      */
-    public function shouldReturnInstanceOfLimitbuilderFromOrderbyCall()
+    public function shouldGetLimitbuilderFromOrderbyCall()
     {
         $sqlSelect = $this->whereBuilder->withOrderBy(['row1', 'row2', 'row3']);
         $this->assertInstanceOf(

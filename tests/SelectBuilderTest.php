@@ -26,7 +26,7 @@ class SelectBuilderTest extends \PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\SqlBuilder\SelectBuilder::select
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldReturnASelectStatementAccordingWithSql92Standard()
+    public function shouldBuildSelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/SELECT\s.*[^,]$/';
         $sqlSelect = $this->selectBuilder->select(['row1','row2','row3','row4','row5']);
@@ -45,7 +45,7 @@ class SelectBuilderTest extends \PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\SqlBuilder\SelectBuilder::select
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldChangeStateOfSelectAndReturnFromStatementObject()
+    public function shouldReturnFromStatementObjectOnChangeStateOfSelect()
     {
         $sqlSelect = $this->selectBuilder->select(['row1','row2','row3','row4','row5']);
         $this->assertInstanceOf(
