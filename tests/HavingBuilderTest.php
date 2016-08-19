@@ -29,7 +29,7 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\SqlBuilder\HavingBuilder::having
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
+    public function shouldBuildSelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/.*\sHAVING\s.*/';
         $sqlSelect = $this->havingBuilder->having('title = \'lorem ipsum dolor sit amen\'');
@@ -45,7 +45,7 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
      * @test
      * @covers MartiAdrogue\SqlBuilder\HavingBuilder::having
      */
-    public function shouldChangeStateOfHavingAndReturnAnotherHavingbuilder()
+    public function shouldReturnAnotherHavingbuilderOnChangeStateOfHaving()
     {
         $sqlSelect = $this->havingBuilder->having('title = \'lorem ipsum dolor sit amen\'');
         $this->assertInstanceOf(
@@ -63,7 +63,7 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
      * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\HavingContext::withOrderBy
      */
-    public function shouldReturnInstanceOfLimitbuilderFromOrderbyCall()
+    public function shouldGetLimitbuilderFromOrderbyCall()
     {
         $sqlSelect = $this->havingBuilder->withOrderBy(['row1', 'row2', 'row3']);
         $this->assertInstanceOf(
@@ -80,7 +80,7 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
      * @uses MartiAdrogue\SqlBuilder\LimitBuilder
      * @covers MartiAdrogue\SqlBuilder\HavingContext::withLimit
      */
-    public function shouldReturnInstanceOfLimitbuilderFromLimitCall()
+    public function shouldGetLimitbuilderFromLimitCall()
     {
         $sqlSelect = $this->havingBuilder->withLimit(10);
         $this->assertInstanceOf(

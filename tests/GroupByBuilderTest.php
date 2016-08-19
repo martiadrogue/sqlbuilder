@@ -29,7 +29,7 @@ class GroupByBuilderTest extends \PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\SqlBuilder\GroupByBuilder::groupBy
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
+    public function shouldBuildSelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/.*\sGROUP BY\s.*/';
         $sqlSelect = $this->groupByBuilder->groupBy(['row1', 'row2', 'row3']);
@@ -48,7 +48,7 @@ class GroupByBuilderTest extends \PHPUnit_Framework_TestCase
      * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\GroupByBuilder::groupBy
      */
-    public function shouldChangeStateOfGroupbyAndReturnHavingbuilder()
+    public function shouldReturnHavingbuilderOnChangeStateOfGroupby()
     {
         $sqlSelect = $this->groupByBuilder->groupBy(['row1', 'row2', 'row3']);
         $this->assertInstanceOf(

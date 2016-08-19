@@ -29,7 +29,7 @@ class OrderByBuilderTest extends \PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\SqlBuilder\OrderByBuilder::orderBy
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
+    public function shouldBuildSelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/.*\sORDER BY\s.*/';
         $sqlSelect = $this->orderByBuilder->orderBy(['row1', 'row2', 'row3']);
@@ -47,7 +47,7 @@ class OrderByBuilderTest extends \PHPUnit_Framework_TestCase
      * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\OrderByBuilder::orderBy
      */
-    public function shouldChangeStateOfOrderbyAndReturnLimitbuilder()
+    public function shouldReturnLimitbuilderOnChangeStateOfOrderby()
     {
         $sqlSelect = $this->orderByBuilder->orderBy(['row1', 'row2', 'row3']);
         $this->assertInstanceOf(

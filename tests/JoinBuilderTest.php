@@ -29,7 +29,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
      * @covers MartiAdrogue\SqlBuilder\JoinBuilder::join
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
+    public function shouldBuildSelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/.*\sJOIN\sON\s.*/';
         $sqlSelect = $this->joinBuilder->join('JOIN ON tableB id = tableA_id');
@@ -45,7 +45,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
      * @test
      * @covers MartiAdrogue\SqlBuilder\JoinBuilder::join
      */
-    public function shouldChangeStateOfFromAndReturnJoinStatementObject()
+    public function shouldReturnAnotherJoinStatementObjectOnChangeStateOfJoin()
     {
         $sqlSelect = $this->joinBuilder->join('JOIN ON tableB id = tableA_id');
         $this->assertInstanceOf(
@@ -61,7 +61,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
      * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\JoinBuilder::withWhere
      */
-    public function shouldReturnInstanceOfWherebuilderCreatedWhithCurrentBuilder()
+    public function shouldGetWherebuilderOnChangeStateOfJoin()
     {
         $sqlSelect = $this->joinBuilder->withWhere('title = \'lorem ipsum dolor sit amen\'');
         $this->assertInstanceOf(
@@ -80,7 +80,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
      * @uses MartiAdrogue\SqlBuilder\HavingBuilder
      * @covers MartiAdrogue\SqlBuilder\WhereContext::withGroupBy
      */
-    public function shouldReturnInstanceOfHavingbuilderFromGroupbyCall()
+    public function shouldGetHavingbuilderFromGroupbyCall()
     {
         $sqlSelect = $this->joinBuilder->withGroupBy(['row1', 'row2', 'row3']);
         $this->assertInstanceOf(
@@ -98,7 +98,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
      * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\HavingContext::withOrderBy
      */
-    public function shouldReturnInstanceOfLimitbuilderFromOrderbyCall()
+    public function shouldGetLimitbuilderFromOrderbyCall()
     {
         $sqlSelect = $this->joinBuilder->withOrderBy(['row1', 'row2', 'row3']);
         $this->assertInstanceOf(
@@ -115,7 +115,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
      * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\HavingContext::withLimit
      */
-    public function shouldReturnInstanceOfLimitbuilderFromLimitCall()
+    public function shouldGetLimitbuilderFromLimitCall()
     {
         $sqlSelect = $this->joinBuilder->withLimit(10);
         $this->assertInstanceOf(
