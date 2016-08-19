@@ -15,6 +15,8 @@ namespace MartiAdrogue\SqlBuilder;
  */
 class WhereBuilder extends WhereContext
 {
+    private $clause = 'WHERE';
+
     public function __construct(JoinBuilder $sql)
     {
         $this->sql = (string) $sql;
@@ -29,7 +31,7 @@ class WhereBuilder extends WhereContext
      */
     public function where($condition)
     {
-        $this->sql .= ' WHERE '.$condition;
+        $this->sql .= $this->clause.' '.$condition;
 
         return $this;
     }

@@ -15,6 +15,8 @@ namespace MartiAdrogue\SqlBuilder;
  */
 class HavingBuilder extends HavingContext
 {
+    private $clause = 'HAVING';
+
     public function __construct(GroupByBuilder $sql)
     {
         $this->sql = (string) $sql;
@@ -29,7 +31,7 @@ class HavingBuilder extends HavingContext
      */
     public function having($condition)
     {
-        $this->sql .= ' HAVING '.$condition;
+        $this->sql .= $this->clause.' '.$condition;
 
         return $this;
     }
