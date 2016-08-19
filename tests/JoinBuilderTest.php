@@ -27,6 +27,7 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers MartiAdrogue\SqlBuilder\JoinBuilder::join
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -56,6 +57,8 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\WhereBuilder
+     * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\JoinBuilder::withWhere
      */
     public function shouldReturnInstanceOfWherebuilderCreatedWhithCurrentBuilder()
@@ -71,7 +74,11 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers MartiAdrogue\SqlBuilder\JoinBuilder::withGroupBy
+     * @uses MartiAdrogue\SqlBuilder\GroupByBuilder
+     * @uses MartiAdrogue\SqlBuilder\Context
+     * @uses MartiAdrogue\SqlBuilder\Expression\RowSequence
+     * @uses MartiAdrogue\SqlBuilder\HavingBuilder
+     * @covers MartiAdrogue\SqlBuilder\WhereContext::withGroupBy
      */
     public function shouldReturnInstanceOfHavingbuilderFromGroupbyCall()
     {
@@ -86,7 +93,10 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers MartiAdrogue\SqlBuilder\JoinBuilder::withOrderBy
+     * @uses MartiAdrogue\SqlBuilder\OrderByBuilder
+     * @uses MartiAdrogue\SqlBuilder\Expression\RowSequence
+     * @uses MartiAdrogue\SqlBuilder\Context
+     * @covers MartiAdrogue\SqlBuilder\HavingContext::withOrderBy
      */
     public function shouldReturnInstanceOfLimitbuilderFromOrderbyCall()
     {
@@ -101,7 +111,9 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers MartiAdrogue\SqlBuilder\JoinBuilder::withLimit
+     * @uses MartiAdrogue\SqlBuilder\LimitBuilder
+     * @uses MartiAdrogue\SqlBuilder\Context
+     * @covers MartiAdrogue\SqlBuilder\HavingContext::withLimit
      */
     public function shouldReturnInstanceOfLimitbuilderFromLimitCall()
     {

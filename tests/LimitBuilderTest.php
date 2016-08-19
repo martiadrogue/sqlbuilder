@@ -8,7 +8,7 @@ use MartiAdrogue\SqlBuilder\LimitBuilder;
 
 /**
  * @covers MartiAdrogue\SqlBuilder\LimitBuilder::<!public>
- * @covers MartiAdrogue\SqlBuilder\LimitBuilder::__construct
+ * @covers MartiAdrogue\SqlBuilder\Context::__construct
  */
 class LimitBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,6 +24,7 @@ class LimitBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers MartiAdrogue\SqlBuilder\LimitBuilder::limit
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {

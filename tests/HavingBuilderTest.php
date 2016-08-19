@@ -27,6 +27,7 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers MartiAdrogue\SqlBuilder\HavingBuilder::having
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -57,7 +58,10 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers MartiAdrogue\SqlBuilder\HavingBuilder::withOrderBy
+     * @uses MartiAdrogue\SqlBuilder\OrderByBuilder
+     * @uses MartiAdrogue\SqlBuilder\Expression\RowSequence
+     * @uses MartiAdrogue\SqlBuilder\Context
+     * @covers MartiAdrogue\SqlBuilder\HavingContext::withOrderBy
      */
     public function shouldReturnInstanceOfLimitbuilderFromOrderbyCall()
     {
@@ -72,7 +76,9 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers MartiAdrogue\SqlBuilder\HavingBuilder::withLimit
+     * @uses MartiAdrogue\SqlBuilder\Context
+     * @uses MartiAdrogue\SqlBuilder\LimitBuilder
+     * @covers MartiAdrogue\SqlBuilder\HavingContext::withLimit
      */
     public function shouldReturnInstanceOfLimitbuilderFromLimitCall()
     {

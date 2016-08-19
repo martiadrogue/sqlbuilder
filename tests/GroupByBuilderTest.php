@@ -9,7 +9,7 @@ use MartiAdrogue\SqlBuilder\GroupByBuilder;
 
 /**
  * @covers MartiAdrogue\SqlBuilder\GroupByBuilder::<!public>
- * @covers MartiAdrogue\SqlBuilder\GroupByBuilder::__construct
+ * @covers MartiAdrogue\SqlBuilder\Context::__construct
  */
 class GroupByBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,7 +24,10 @@ class GroupByBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\Expression\RowSequence
+     * @uses MartiAdrogue\SqlBuilder\HavingBuilder
      * @covers MartiAdrogue\SqlBuilder\GroupByBuilder::groupBy
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -40,6 +43,10 @@ class GroupByBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\Expression\RowSequence
+     * @uses MartiAdrogue\SqlBuilder\HavingBuilder
+     * @uses MartiAdrogue\SqlBuilder\Context
+     * @covers MartiAdrogue\SqlBuilder\GroupByBuilder::groupBy
      */
     public function shouldChangeStateOfGroupbyAndReturnHavingbuilder()
     {

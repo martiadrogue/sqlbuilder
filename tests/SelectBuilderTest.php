@@ -21,7 +21,10 @@ class SelectBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\FromBuilder
+     * @uses MartiAdrogue\SqlBuilder\Expression\RowSequence
      * @covers MartiAdrogue\SqlBuilder\SelectBuilder::select
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldReturnASelectStatementAccordingWithSql92Standard()
     {
@@ -37,7 +40,10 @@ class SelectBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\Expression\RowSequence
+     * @uses MartiAdrogue\SqlBuilder\FromBuilder
      * @covers MartiAdrogue\SqlBuilder\SelectBuilder::select
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldChangeStateOfSelectAndReturnFromStatementObject()
     {
