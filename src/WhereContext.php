@@ -8,9 +8,6 @@
  */
 namespace MartiAdrogue\SqlBuilder;
 
-/**
- * {@inheritdoc}
- */
 abstract class WhereContext extends HavingContext
 {
     /**

@@ -8,9 +8,6 @@
  */
 namespace MartiAdrogue\SqlBuilder;
 
-/**
- * {@inheritdoc}
- */
 abstract class JoinContext extends WhereContext
 {
     /**

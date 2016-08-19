@@ -9,7 +9,7 @@
 namespace MartiAdrogue\SqlBuilder;
 
 /**
- * Provides the most basic tools to creating in parts database queries.
+ * Constructs an Context object from other Context and cast it into string.
  */
 abstract class Context
 {
@@ -20,6 +20,11 @@ abstract class Context
         $this->sql = (string) $statement;
     }
 
+    /**
+     * Return the string representation of the Context element.
+     *
+     * @return string Select satement
+     */
     public function __toString()
     {
         return $this->sql;

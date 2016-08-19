@@ -1,11 +1,17 @@
 <?php
-
+/**
+ * This file is part of the martiadrogue/sqlbuilder package.
+ *
+ * @author    Martí Adrogué <marti.adrogue@gmail.com>
+ * @copyright 2016 Martí Adrogué
+ * @license   https://opensource.org/licenses/MIT MIT License
+ */
 namespace MartiAdrogue\SqlBuilder\Exception;
 
 use InvalidArgumentException;
 
 /**
- *
+ * Stop flow when there are some sql syntax malformed.
  */
 class InvalidSqlSyntaxException extends InvalidArgumentException
 {
