@@ -19,10 +19,10 @@ class RowSequence
      *
      * @uses config/ReservedWords.php
      *
-     * @throws InvalidSqlSyntaxException If
-     *                                   provided rows has some reserved words.
+     * @throws InvalidSqlSyntaxException If provided rows has some reserved
+     *                                   words.
      *
-     * @param array $rows An stack of rows
+     * @param array $rows Stack of rows
      */
     public function __construct(array $rows)
     {
@@ -33,7 +33,7 @@ class RowSequence
     /**
      * Convert an array of rows into a list represented by string.
      *
-     * @return string A list of rows separated by comma
+     * @return string List of rows separated by comma
      */
     public function getChainOfRows()
     {
