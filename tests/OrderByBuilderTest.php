@@ -24,7 +24,10 @@ class OrderByBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\Expression\RowSequence
+     * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\OrderByBuilder::orderBy
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -40,6 +43,8 @@ class OrderByBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\Expression\RowSequence
+     * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\OrderByBuilder::orderBy
      */
     public function shouldChangeStateOfOrderbyAndReturnLimitbuilder()

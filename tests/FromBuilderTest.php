@@ -24,7 +24,9 @@ class FromBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\JoinBuilder
      * @covers MartiAdrogue\SqlBuilder\FromBuilder::from
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldReturnAFullSelectStatementAccordingWithSql92Standard()
     {
@@ -40,7 +42,9 @@ class FromBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\JoinBuilder
      * @covers MartiAdrogue\SqlBuilder\FromBuilder::from
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldChangeStateOfFromAndReturnJoinStatementObject()
     {
