@@ -7,15 +7,15 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Make great SQL tasks dynamically. Return a Select statement from a chain of
-responsibilities pattern and some "with" methods to cover all paths of the
-select.
+Make great SQL tasks dynamically. Return a Select statement from chain of
+responsibilities pattern based source and some "with" methods to cover all paths
+of the select.
 
 ## Install
 
 Via Composer
 
-``` json
+```json
 "repositories": [
     {
         "type": "git",
@@ -29,24 +29,35 @@ Via Composer
 
 ## Usage
 
-``` php
-$skeleton = new MartiAdrogue\SqlBuilder();
-echo $skeleton->echoPhrase('Hello, League!');
+```php
+$selectBuilder = new MartiAdrogue\SelectBuilder();
+echo $selectBuilder->select(['col1', 'col2', 'col3'])
+         ->from('table')
+         ->where('col1 = \'lorem ipsum dolor sit amen\'')
+         ->limit(20);
+```
+
+To a deep usage explanation run
+
+```bash
+phpunit --testdox
 ```
 
 ## Change log
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed
+recently.
 
 ## Testing
 
-``` bash
+```bash
 composer test
 ```
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for
+details.
 
 ## Security
 
@@ -60,7 +71,10 @@ marti.adrogue@gmail.com instead of using the issue tracker.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE.md) for more
+information.
+
+**Build with steel and thunder!**
 
 [ico-version]: https://img.shields.io/packagist/v/martiadrogue/sqlbuilder.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
