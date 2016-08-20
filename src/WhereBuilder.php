@@ -31,7 +31,7 @@ class WhereBuilder extends WhereContext
      */
     public function where($condition)
     {
-        $this->sql .= $this->clause.' '.$condition;
+        $this->sql .= ' '.$this->clause.' '.$condition;
 
         return $this;
     }

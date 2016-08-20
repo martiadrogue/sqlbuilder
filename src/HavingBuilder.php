@@ -31,7 +31,7 @@ class HavingBuilder extends HavingContext
      */
     public function having($condition)
     {
-        $this->sql .= $this->clause.' '.$condition;
+        $this->sql .= ' '.$this->clause.' '.$condition;
 
         return $this;
     }
