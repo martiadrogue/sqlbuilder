@@ -29,7 +29,7 @@ class HavingOrBuilder extends HavingContext
      *
      * @return HavingBuilder Builder to make Having part of a statement Select.
      */
-    public function or($condition)
+    public function orThen($condition)
     {
         $this->sql .= ' '.$this->clause.' '.$condition;
 
@@ -43,10 +43,10 @@ class HavingOrBuilder extends HavingContext
      *
      * @return WhereBuilder Builder to make Where part of a statement Select.
      */
-    public function and($condition)
+    public function andThen($condition)
     {
         $havingAndBuilder = new HavingAndBuilder($this);
 
-        return $havingAndBuilder->and($condition);
+        return $havingAndBuilder->andThen($condition);
     }
 }

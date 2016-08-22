@@ -25,12 +25,13 @@ class HavingOrBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers MartiAdrogue\SqlBuilder\HavingOrBuilder::orThen
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldBuildSelectStatementAccordingWithSql92Standard()
     {
         $selectSyntax = '/.*\sOR\s.*/';
-        $sqlSelect = $this->havingOrBuilder->or('title = \'lorem ipsum dolor sit amen\'');
+        $sqlSelect = $this->havingOrBuilder->orThen('title = \'lorem ipsum dolor sit amen\'');
 
         $this->assertRegExp(
             $selectSyntax,
@@ -41,11 +42,11 @@ class HavingOrBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers MartiAdrogue\SqlBuilder\HavingOrBuilder::or
+     * @covers MartiAdrogue\SqlBuilder\HavingOrBuilder::orThen
      */
     public function shouldReturnAnotherWhereandbuilderOnChangeStateOfAnd()
     {
-        $sqlSelect = $this->havingOrBuilder->or('title = \'lorem ipsum dolor sit amen\'');
+        $sqlSelect = $this->havingOrBuilder->orThen('title = \'lorem ipsum dolor sit amen\'');
         $this->assertInstanceOf(
             HavingOrBuilder::class,
             $sqlSelect,
@@ -57,11 +58,12 @@ class HavingOrBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      * @uses MartiAdrogue\SqlBuilder\HavingAndBuilder
+     * @covers MartiAdrogue\SqlBuilder\HavingOrBuilder::andThen
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldGetAndbuilderFromAndCall()
     {
-        $sqlSelect = $this->havingOrBuilder->and('row1 = 10');
+        $sqlSelect = $this->havingOrBuilder->andThen('row1 = 10');
         $this->assertInstanceOf(
             HavingAndBuilder::class,
             $sqlSelect,

@@ -29,7 +29,7 @@ class WhereAndBuilder extends WhereContext
      *
      * @return WhereBuilder Builder to make Where part of a statement Select.
      */
-    public function and($condition)
+    public function andThen($condition)
     {
         $this->sql .= ' '.$this->clause.' '.$condition;
 
@@ -43,10 +43,10 @@ class WhereAndBuilder extends WhereContext
      *
      * @return WhereBuilder Builder to make Where part of a statement Select.
      */
-    public function or($condition)
+    public function orThen($condition)
     {
         $whereOrBuilder = new WhereOrBuilder($this);
 
-        return $whereOrBuilder->or($condition);
+        return $whereOrBuilder->orThen($condition);
     }
 }
