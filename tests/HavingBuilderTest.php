@@ -7,6 +7,7 @@ use MartiAdrogue\SqlBuilder\Context;
 use MartiAdrogue\SqlBuilder\LimitBuilder;
 use MartiAdrogue\SqlBuilder\HavingBuilder;
 use MartiAdrogue\SqlBuilder\GroupByBuilder;
+use MartiAdrogue\SqlBuilder\HavingAndBuilder;
 
 /**
  * @covers MartiAdrogue\SqlBuilder\HavingBuilder::<!public>
@@ -27,6 +28,7 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers MartiAdrogue\SqlBuilder\HavingBuilder::having
+     * @uses MartiAdrogue\SqlBuilder\HavingAndBuilder
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
     public function shouldBuildSelectStatementAccordingWithSql92Standard()
@@ -43,16 +45,18 @@ class HavingBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\HavingAndBuilder
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      * @covers MartiAdrogue\SqlBuilder\HavingBuilder::having
      */
-    public function shouldReturnAnotherHavingbuilderOnChangeStateOfHaving()
+    public function shouldReturnHavingandbuilderOnChangeStateOfHaving()
     {
         $sqlSelect = $this->havingBuilder->having('title = \'lorem ipsum dolor sit amen\'');
         $this->assertInstanceOf(
-            HavingBuilder::class,
+            HavingAndBuilder::class,
             $sqlSelect,
             'On change the HavingBuilder state It must return an instance of '.
-            'same Builder, to add some aditional filters.'
+            'HavingAndBuilder, to add some aditional filters.'
         );
     }
 

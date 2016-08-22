@@ -13,26 +13,40 @@ namespace MartiAdrogue\SqlBuilder;
  *
  * [HAVING where_condition]
  */
-class HavingBuilder extends HavingContext
+class HavingAndBuilder extends HavingContext
 {
-    private $clause = 'HAVING';
+    private $clause = 'AND';
 
-    public function __construct(GroupByBuilder $sql)
+    public function __construct(HavingContext $sql)
     {
         $this->sql = (string) $sql;
     }
 
     /**
-     * Build Having clause of Select statement.
+     * Build And clause of Select statement.
      *
      * @param string $condition assertion to filter results
      *
      * @return HavingBuilder Builder to make Having part of a statement Select.
      */
-    public function having($condition)
+    public function and($condition)
     {
         $this->sql .= ' '.$this->clause.' '.$condition;
 
-        return new HavingAndBuilder($this);
+        return $this;
+    }
+
+    /**
+     * Build Or connector with condition of Select statement.
+     *
+     * @param string $condition assertion to filter results
+     *
+     * @return WhereBuilder Builder to make Where part of a statement Select.
+     */
+    public function or($condition)
+    {
+        $havingOrBuilder = new HavingOrBuilder($this);
+
+        return $havingOrBuilder->or($condition);
     }
 }
