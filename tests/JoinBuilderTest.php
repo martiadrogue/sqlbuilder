@@ -8,6 +8,7 @@ use MartiAdrogue\SqlBuilder\JoinBuilder;
 use MartiAdrogue\SqlBuilder\WhereBuilder;
 use MartiAdrogue\SqlBuilder\LimitBuilder;
 use MartiAdrogue\SqlBuilder\HavingBuilder;
+use MartiAdrogue\SqlBuilder\WhereAndBuilder;
 
 /**
  * @covers MartiAdrogue\SqlBuilder\JoinBuilder::<!public>
@@ -58,16 +59,17 @@ class JoinBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      * @uses MartiAdrogue\SqlBuilder\WhereBuilder
+     * @uses MartiAdrogue\SqlBuilder\WhereAndBuilder
      * @uses MartiAdrogue\SqlBuilder\Context
      * @covers MartiAdrogue\SqlBuilder\JoinBuilder::withWhere
      */
-    public function shouldGetWherebuilderOnChangeStateOfJoin()
+    public function shouldGetWhereandbuilderOnChangeStateOfJoin()
     {
         $sqlSelect = $this->joinBuilder->withWhere('title = \'lorem ipsum dolor sit amen\'');
         $this->assertInstanceOf(
-            WhereBuilder::class,
+            WhereAndBuilder::class,
             $sqlSelect,
-            'JoinBuilder must return a instance of WhereBuilder to let continue '.
+            'JoinBuilder must return a instance of WhereAndBuilder to let continue '.
             'building the query with all statements.'
         );
     }
