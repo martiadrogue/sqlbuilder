@@ -13,26 +13,40 @@ namespace MartiAdrogue\SqlBuilder;
  *
  * [WHERE where_condition]
  */
-class WhereBuilder extends WhereContext
+class WhereAndBuilder extends WhereContext
 {
-    private $clause = 'WHERE';
+    private $clause = 'AND';
 
-    public function __construct(JoinBuilder $sql)
+    public function __construct(WhereContext $sql)
     {
         $this->sql = (string) $sql;
     }
 
     /**
-     * Build Where clause of Select statement.
+     * Build And clause of Select statement.
      *
      * @param string $condition assertion to filter results
      *
      * @return WhereBuilder Builder to make Where part of a statement Select.
      */
-    public function where($condition)
+    public function and($condition)
     {
         $this->sql .= ' '.$this->clause.' '.$condition;
 
-        return new WhereAndBuilder($this);
+        return $this;
+    }
+
+    /**
+     * Build Or connector with condition of Select statement.
+     *
+     * @param string $condition assertion to filter results
+     *
+     * @return WhereBuilder Builder to make Where part of a statement Select.
+     */
+    public function or($condition)
+    {
+        $whereOrBuilder = new WhereOrBuilder($this);
+
+        return $whereOrBuilder->or($condition);
     }
 }

@@ -8,6 +8,7 @@ use MartiAdrogue\SqlBuilder\WhereBuilder;
 use MartiAdrogue\SqlBuilder\LimitBuilder;
 use MartiAdrogue\SqlBuilder\HavingBuilder;
 use MartiAdrogue\SqlBuilder\OrderByBuilder;
+use MartiAdrogue\SqlBuilder\WhereAndBuilder;
 
 /**
  * @covers MartiAdrogue\SqlBuilder\WhereBuilder::<!public>
@@ -26,6 +27,7 @@ class WhereBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\WhereAndBuilder
      * @covers MartiAdrogue\SqlBuilder\WhereBuilder::where
      * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
@@ -43,16 +45,18 @@ class WhereBuilderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @uses MartiAdrogue\SqlBuilder\WhereAndBuilder
      * @covers MartiAdrogue\SqlBuilder\WhereBuilder::where
+     * @covers MartiAdrogue\SqlBuilder\Context::__toString
      */
-    public function shouldReturnAnotherWherebuilderOnChangeStateOfWhere()
+    public function shouldReturnWhereandbuilderOnChangeStateOfWhere()
     {
         $sqlSelect = $this->whereBuilder->where('title = \'lorem ipsum dolor sit amen\'');
         $this->assertInstanceOf(
-            WhereBuilder::class,
+            WhereAndBuilder::class,
             $sqlSelect,
-            'On change the WhereBuilder It must return an instance of same'.
-            'Builder, WhereBuilder, to add another where.'
+            'On change the WhereBuilder It must return an instance of '.
+            'WhereAndBuilder, to add and statement.'
         );
     }
 
