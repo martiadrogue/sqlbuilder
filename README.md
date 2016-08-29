@@ -8,8 +8,9 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 Make great SQL tasks dynamically. Return a Select statement from chain of
-responsibilities pattern based source and some "with" methods to cover all paths
-of the select.
+responsibilities pattern based source and "with" methods to cover all paths of
+the select. Main responsibility of that package is have all common select
+keywords well positioned.
 
 ## Install
 
