@@ -8,8 +8,9 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 Make great SQL tasks dynamically. Return a Select statement from chain of
-responsibilities pattern based source and some "with" methods to cover all paths
-of the select.
+responsibilities pattern based source and "with" methods to cover all paths of
+the select. Main responsibility of that package is have all common select
+keywords well positioned.
 
 ## Install
 
@@ -26,6 +27,8 @@ Via Composer
     "martiadrogue/sqlbuilder": "dev-devel"
 },
 ```
+
+Old school, grab files from [dist directory][link-download]
 
 ## Usage
 
@@ -90,3 +93,4 @@ information.
 [link-downloads]: https://packagist.org/packages/martiadrogue/sqlbuilder
 [link-author]: https://github.com/martiadrogue
 [link-contributors]: ../../contributors
+[link-download]: https://github.com/martiadrogue/sqlbuilder/archive/master.zip
