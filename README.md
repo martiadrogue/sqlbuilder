@@ -27,6 +27,8 @@ Via Composer
 },
 ```
 
+Old school, grab files from [dist directory][link-download]
+
 ## Usage
 
 ```php
@@ -90,3 +92,4 @@ information.
 [link-downloads]: https://packagist.org/packages/martiadrogue/sqlbuilder
 [link-author]: https://github.com/martiadrogue
 [link-contributors]: ../../contributors
+[link-download]: https://github.com/martiadrogue/sqlbuilder/archive/master.zip
