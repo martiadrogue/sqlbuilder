@@ -10,7 +10,9 @@
 Make great SQL tasks dynamically. Return a Select statement from chain of
 responsibilities pattern based source and "with" methods to cover all paths of
 the select. Main responsibility of that package is have all common select
-keywords well positioned.
+keywords well positioned. Besides select keywords, there are: List of columns
+that are represented by arrays of data. And logical operations that are
+represented by strings of information.
 
 ## Install
 

@@ -42,7 +42,7 @@ class RowSequence
 
     private function hasReservedWords($rows)
     {
-        $reservedWords = include 'config/ReservedWords.php';
+        $reservedWords = SyntaxCollection::KEY_WORDS;
         $candidatesViolation = array_map('strtoupper', $rows);
         $violations = array_intersect($reservedWords, $candidatesViolation);
 
