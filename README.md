@@ -7,12 +7,13 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Make great SQL tasks dynamically. Return a Select statement from chain of
-responsibilities pattern based source and "with" methods to cover all paths of
-the select. Main responsibility of that package is have all common select
-keywords well positioned. Besides select keywords, there are: List of columns
-that are represented by arrays of data. And logical operations that are
-represented by strings of information.
+Fancy internal Domain Specific Languages (DSL) to write SQL Selects by an 
+[Fluent interface][link-fluent-interface] implementation. It builds great SQL tasks dynamically. Return
+a Select statement from chain of responsibilities pattern based source and
+"with" methods to cover all paths of the select. Main responsibility of that
+package is have all common select keywords well positioned. Besides select
+keywords, there are: List of columns that are represented by arrays of data.
+And logical operations that are represented by strings of information.
 
 ## Install
 
@@ -94,5 +95,6 @@ information.
 [link-code-quality]: https://scrutinizer-ci.com/g/martiadrogue/sqlbuilder
 [link-downloads]: https://packagist.org/packages/martiadrogue/sqlbuilder
 [link-author]: https://github.com/martiadrogue
+[link-fluent-interface]: https://en.wikipedia.org/wiki/Fluent_interface
 [link-contributors]: ../../contributors
 [link-download]: https://github.com/martiadrogue/sqlbuilder/archive/master.zip
