@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Fancy internal Domain Specific Languages (DSL) to write SQL Selects by an 
+Fancy internal Domain Specific Languages (DSL) to write SQL Selects by a 
 [Fluent interface][link-fluent-interface] implementation. It builds great SQL tasks dynamically. Return
 a Select statement from chain of responsibilities pattern based source and
 "with" methods to cover all paths of the select. Main responsibility of that
